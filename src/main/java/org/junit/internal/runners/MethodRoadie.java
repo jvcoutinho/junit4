@@ -159,4 +159,3 @@ public class MethodRoadie {
         fNotifier.fireTestFailure(new Failure(fDescription, e));
     }
 }
-
