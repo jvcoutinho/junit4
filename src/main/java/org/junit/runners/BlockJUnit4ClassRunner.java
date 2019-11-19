@@ -351,7 +351,7 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
 		List<TestRule> testRules= getTestRules(target);
 		for (org.junit.rules.MethodRule each : getMethodRules(target))
 			if (! testRules.contains(each))
-				result= each.apply(result, method, target);
+			result= each.apply(result, method, target);
 		return result;
 	}
 
