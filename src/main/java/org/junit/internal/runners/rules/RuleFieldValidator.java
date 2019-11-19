@@ -115,7 +115,7 @@ public enum RuleFieldValidator {
         return TestRule.class.isAssignableFrom(member.getType());
     }
 
-    private boolean isMethodRule(FrameworkMember<?> member) {
+        private boolean isMethodRule(FrameworkMember<?> member) {
         return MethodRule.class.isAssignableFrom(member.getType());
     }
 

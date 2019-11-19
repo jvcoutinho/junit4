@@ -134,5 +134,17 @@ public class ParentRunnerTest {
         assertThat(result.getFailureCount(), is(2)); //the second failure is no runnable methods
         assertThat(result.getFailures().get(0).getMessage(),
                 is(equalTo(message)));
+
     }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Inherited
+    @ValidateWith(ExampleAnnotationValidator.class)
+    public @interface ExampleAnnotationWithValidator {
+    }@Test
+    public void validatorIsCalledForAMethod() {
+        assertClassHasFailureMessage(AnnotationValidatorMethodTest.class,
+                ExampleAnnotationValidator.ANNOTATED_METHOD_CALLED);
+    }
+
 }
