@@ -44,20 +44,20 @@ public class MaxHistory implements Serializable {
 		try {
 			try {
 				stream= new ObjectInputStream(file);
+		} catch (IOException e) {
+			throw new CouldNotReadCoreException(e);
+		}
+		try {
+			return (MaxHistory) stream.readObject();
+		} catch (Exception e) {
+			throw new CouldNotReadCoreException(e); //TODO think about what we can do better here
+		} finally {
+			try {
+				stream.close();
 			} catch (IOException e) {
 				throw new CouldNotReadCoreException(e);
 			}
-			try {
-				return (MaxHistory) stream.readObject();
-			} catch (Exception e) {
-				throw new CouldNotReadCoreException(e); //TODO think about what we can do better here
-			} finally {
-				try {
-					stream.close();
-				} catch (IOException e) {
-					throw new CouldNotReadCoreException(e);
-				}
-			}
+		}
 		} finally {
 			try {
 				file.close();
