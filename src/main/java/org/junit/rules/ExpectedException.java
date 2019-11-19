@@ -188,7 +188,7 @@ public class ExpectedException implements TestRule {
 				description.appendText("exception with message ");
 				description.appendDescriptionOf(matcher);
 			}
-
+		
 			@Override
 			public boolean matchesSafely(Throwable item) {
 				return matcher.matches(item.getMessage());
