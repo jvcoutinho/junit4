@@ -90,11 +90,11 @@ public class TestClassTest {
 
         @Rule
         public boolean fieldA;
-
+    	
         @Rule
         public boolean fieldB;
     }
-
+    
     @Test
     public void providesAnnotatedFieldsSortedByName() {
         TestClass tc= new TestClass(FieldAnnotated.class);
@@ -106,10 +106,10 @@ public class TestClassTest {
 
     @Test
     public void annotatedFieldValues() {
-        TestClass tc = new TestClass(FieldAnnotated.class);
-        List<String> values = tc.getAnnotatedFieldValues(new FieldAnnotated(), Rule.class, String.class);
-        assertThat(values, hasItem("andromeda"));
-        assertThat(values.size(), is(1));
+    	TestClass tc = new TestClass(FieldAnnotated.class);
+    	List<String> values = tc.getAnnotatedFieldValues(new FieldAnnotated(), Rule.class, String.class);
+    	assertThat(values, hasItem("andromeda"));
+    	assertThat(values.size(), is(1));
     }
 
     public static class MethodsAnnotated {
@@ -124,14 +124,14 @@ public class TestClassTest {
         public String methodA() {
             return "jupiter";
         }
-
+    	
         @Ignore
         @Test
         public int methodB() {
             return 0;
     	}
     }
-
+    
     @Test
     public void providesAnnotatedMethodsSortedByName() {
     	TestClass tc = new TestClass(MethodsAnnotated.class);
